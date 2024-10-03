@@ -1,22 +1,57 @@
 .barcode-generator-container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; // Centraliza todos os textos
   
     h1 {
+      font-size: 2rem; // Tamanho do título
       margin-bottom: 20px;
     }
   
+    .form-group {
+      margin: 10px 0; // Espaçamento entre os grupos de input
+    }
+  
+    label {
+      font-size: 1.2rem; // Tamanho da fonte do label
+    }
+  
     input {
-      margin-right: 10px;
+      padding: 10px; // Espaçamento interno
+      border: 1px solid #ccc; // Bordas
+      border-radius: 5px; // Bordas arredondadas
+      width: 300px; // Largura do input
+      max-width: 100%; // Ajusta a largura em telas menores
     }
   
     button {
-      margin-top: 10px;
+      background-color: black; // Cor de fundo dos botões
+      color: white; // Cor do texto dos botões
+      border: none; // Remove bordas
+      padding: 10px 20px; // Espaçamento interno dos botões
+      border-radius: 5px; // Bordas arredondadas
+      cursor: pointer; // Aponta o cursor ao passar por cima
+      margin: 10px; // Margem ao redor dos botões
+  
+      &:hover {
+        background-color: darkgray; // Cor de fundo ao passar o mouse
+      }
+    }
+  
+    .barcode-preview {
+      margin-top: 20px; // Espaçamento entre a pré-visualização e o botão
     }
   
     svg {
-      margin-top: 20px;
+      width: 200px; // Largura do código de barras
+      height: auto; // Altura automática para manter proporção
+    }
+  
+    .download-container {
+      margin-top: 20px; // Espaçamento entre a pré-visualização e o botão de download
     }
   }
+  
   
