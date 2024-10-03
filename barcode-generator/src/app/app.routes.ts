@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { BarcodeGeneratorComponent } from './barcode-generator/barcode-generator.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent }, // Rota padrão
-  { path: 'generate-barcode', component: BarcodeGeneratorComponent } // Rota para gerar código de barras
+  { path: 'login', component: LoginComponent },
+  { path: 'barcode-generator', component: BarcodeGeneratorComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -13,4 +15,5 @@ export const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 
