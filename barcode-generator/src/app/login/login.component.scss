@@ -1,0 +1,81 @@
+.login-container {
+    display: flex;
+    flex-direction: column; /* Alinha os filhos em uma coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 70vh; /* Faz o contêiner ocupar toda a altura da tela */
+    //background-color: rgb(16, 17, 19);
+}
+
+.login-form {
+    color:white;
+    background-color: rgb(7, 7, 8); /* Para um fundo mais leve */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-group {
+    font-size: 20px;
+    padding-bottom: 2%;
+    width: 100%; /* Garante que o grupo de formulário ocupe toda a largura */
+}
+
+label {
+    display: block; /* Faz o label ocupar toda a largura disponível */
+    text-align: left; /* Alinha o texto do label à esquerda */
+    margin-bottom: 0.5rem; /* Espaço entre o label e o input */
+    margin-left: 1%;
+}
+
+input {
+    width: 90%; /* Faz o input ocupar toda a largura do contêiner */
+    padding: 0.75rem;
+    margin-left: 1%;
+    border: 1px solid var(--gray-700);
+    border-radius: 4px;
+    color:black;
+}
+
+/* Cor da borda ao focar no input */
+input:focus {
+    border-color: darkred; /* Altera a cor da borda para dark red */
+    outline: none; /* Remove o contorno padrão do foco */
+}
+
+.btn-acesso {
+    font-size: 20px;
+    font-weight: 300;
+    background-color: darkred;
+    color: white;
+    width: 100%; /* Faz o botão ocupar toda a largura do contêiner */
+    padding: 0.75rem; /* Adiciona espaçamento interno ao botão */
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center; /* Centraliza o título do formulário */
+    margin-bottom: 1rem; /* Espaço entre o título e o resto do formulário */
+}
+
+
+.text-bottom-menu {
+    font-size: 12px;
+    padding-top: 20%;
+    text-align: center; /* Centraliza o texto do menu */
+    padding-top: 20px; /* Ajuste o padding conforme necessário */
+}
+
+/* CSS para centralizar o texto na navbar */
+.navbar {
+    display: flex; /* Torna a navbar um flex container */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 1rem; /* Ajuste conforme necessário */
+}
+
+.navbar-brand {
+    text-align: center; /* Centraliza o texto dentro da navbar */
+    font-size: 12px; /* Ajuste o tamanho da fonte se necessário */
+}
