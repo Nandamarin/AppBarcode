@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { FormsModule } from '@angular/forms'; // Adicione esta linha
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  imports: [FormsModule] // Adicione o FormsModule aqui
 })
 export class LoginComponent {
   username: string = '';
@@ -16,19 +16,16 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
-    const isAuthenticated = this.authService.authenticate(this.username, this.password);
-    if (isAuthenticated) {
+  onSubmit(): void {
+    if (this.authService.authenticate(this.username, this.password)) {
+      // Redireciona para a página 'barcode-generator' após login bem-sucedido
       this.router.navigate(['/barcode-generator']);
     } else {
+      // Exibe mensagem de erro ou trata login inválido
       alert('Usuário ou senha incorretos');
     }
   }
-
-  register() {
-    this.authService.register(this.username, this.password);
-    alert('Usuário registrado com sucesso!');
-  }
 }
+
 
 

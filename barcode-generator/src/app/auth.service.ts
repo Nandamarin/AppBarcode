@@ -1,35 +1,32 @@
 import { Injectable } from '@angular/core';
+import * as CryptoJS from 'crypto-js';
+import { environment } from '../enviroments/enviroment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private users: { username: string; password: string }[] = []; // Armazena usuários na memória
-  private isLoggedIn = false; // Estado de autenticação
+  private isAuthenticatedStatus = false; // Status de autenticação
 
-  // Método para registrar um novo usuário
-  register(username: string, password: string): void {
-    this.users.push({ username, password });
-  }
+  // Definindo o super usuário com credenciais do environment
+  private superUser = {
+    username: environment.SUPERUSER_USERNAME, // Pega do arquivo de ambiente
+    password: CryptoJS.SHA256(environment.SUPERUSER_PASSWORD).toString() // Hash da senha
+  };
 
-  // Método para autenticar o usuário
+  // Função de autenticação que compara as credenciais inseridas com as armazenadas
   authenticate(username: string, password: string): boolean {
-    const user = this.users.find(u => u.username === username && u.password === password);
-    if (user) {
-      this.isLoggedIn = true; // O usuário está autenticado
-      return true;
-    }
-    return false; // Usuário não autenticado
+    const hashedPassword = CryptoJS.SHA256(password).toString();
+    const isAuthenticated = username === this.superUser.username && hashedPassword === this.superUser.password;
+    this.isAuthenticatedStatus = isAuthenticated; // Atualiza o status de autenticação
+    return isAuthenticated;
   }
 
-  // Método para verificar se o usuário está autenticado
+  // Função para verificar se o usuário está autenticado
   isAuthenticated(): boolean {
-    return this.isLoggedIn;
-  }
-
-  // Método para logout
-  logout(): void {
-    this.isLoggedIn = false;
+    return this.isAuthenticatedStatus; // Retorna o status de autenticação
   }
 }
+
 

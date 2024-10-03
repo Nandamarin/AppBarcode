@@ -1,5 +1,5 @@
 <div class="login-container">
-    <form class="login-form" (ngSubmit)="onSubmit()">
+    <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm"> <!-- Adicione #loginForm -->
         <h1>Credenciais | Barcode Online</h1>
         <div class="form-group">
             <label for="username">Usuário</label>
@@ -10,7 +10,7 @@
             <input type="password" id="password" name="password" [(ngModel)]="password" required />
         </div>
         <button class="btn-acesso" type="submit">Acessar</button>
-        <button type="button" (click)="register()">Registrar</button> <!-- Botão de registro -->
+        <!-- <button type="button" (click)="register()">Registrar</button> Botão de registro -->
     </form>
 </div>
 
@@ -21,5 +21,6 @@
         </a>
     </div>
 </nav>
+
 
  
