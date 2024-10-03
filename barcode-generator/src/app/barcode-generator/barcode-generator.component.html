@@ -1,1 +1,22 @@
-<p>barcode-generator works!</p>
+<div class="barcode-generator-container">
+    <h1>Gerador de Código de Barras</h1>
+    
+    <div>
+      <label for="barcodeValue">Digite o valor do código de barras:</label>
+      <input
+        type="text"
+        id="barcodeValue"
+        [(ngModel)]="barcodeValue"
+        placeholder="Digite aqui..."
+        required
+      />
+      <button (click)="generateBarcode()">Gerar Código de Barras</button>
+    </div>
+  
+    <div *ngIf="generatedBarcode">
+      <h2>Código de Barras Gerado:</h2>
+      <svg id="barcode"></svg> <!-- Aqui o código de barras será exibido -->
+      <p>Valor: {{ generatedBarcode }}</p>
+    </div>
+  </div>
+  
