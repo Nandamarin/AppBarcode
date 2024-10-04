@@ -1,17 +1,18 @@
 <div class="barcode-generator-container">
-    <h1>Gerador de Código de Barras</h1>
+    <h1 class="text-title">Gerador de Código de Barras</h1>
     
     <div>
       <button (click)="generateBarcode()">Gerar Código de Barras</button>
     </div>
   
-    <div *ngIf="generatedBarcode">
+    <div *ngIf="generatedBarcode" class="pdf-preview"> <!-- Adicionando a classe pdf-preview aqui -->
       <h2>Código de Barras Gerado:</h2>
       <div id="barcode"></div> <!-- Aqui o código de barras será exibido -->
-      <p>Valor: {{ generatedBarcode }}</p>
-      <button (click)="downloadBarcode()">Baixar Código de Barras em PDF</button>
+      <p>Valor do código: {{ generatedBarcode }}</p>
+      <button (click)="downloadBarcode()">Baixar em PDF</button>
     </div>
   </div>
+  
   
   
   

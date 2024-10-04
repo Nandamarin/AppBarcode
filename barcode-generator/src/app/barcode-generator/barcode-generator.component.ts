@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-barcode-generator',
   standalone: true,
-  imports:[FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './barcode-generator.component.html',
   styleUrl: './barcode-generator.component.scss'
 })
@@ -26,11 +26,18 @@ export class BarcodeGeneratorComponent {
       JsBarcode(svgElement, randomBarcode, {
         format: 'EAN13',
         width: 2,
-        height: 100,
+        height: 120,
         displayValue: true,
       });
       this.barcodeImageData = svgElement.outerHTML;
-      
+
+      // Centraliza o texto do valor do código de barras
+      const textElement = svgElement.querySelector('text');
+      if (textElement) {
+        textElement.setAttribute('text-anchor', 'middle'); // Centraliza o texto horizontalmente
+        textElement.setAttribute('x', '100%'); // Ajusta a posição X para 50% da largura do SVG
+      }
+
       // Exibe o código de barras na tela
       const barcodeElement = document.getElementById('barcode');
       if (barcodeElement) {
@@ -93,5 +100,6 @@ export class BarcodeGeneratorComponent {
     img.src = url;
   }
 }
+
 
 

@@ -5,8 +5,8 @@
     justify-content: center;
     text-align: center; // Centraliza todos os textos
   
-    h1 {
-      font-size: 2rem; // Tamanho do título
+    .text-title {
+      font-size: 20px; // Tamanho do título
       margin-bottom: 20px;
     }
   
@@ -29,6 +29,7 @@
     button {
       background-color: black; // Cor de fundo dos botões
       color: white; // Cor do texto dos botões
+      font-size: 20px;
       border: none; // Remove bordas
       padding: 10px 20px; // Espaçamento interno dos botões
       border-radius: 5px; // Bordas arredondadas
